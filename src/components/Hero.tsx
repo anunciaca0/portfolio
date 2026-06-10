@@ -103,7 +103,7 @@ export default function Hero() {
         >
           <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-brand-violet/30 to-transparent opacity-40 blur-xl" />
           <div className="relative">
-            <img src="/logo_anunciacao.png" alt="Anunciação" className="mx-auto h-20 w-auto" />
+            <img src="/logo_anunciacao.png" alt="Anunciação" className="mx-auto h-36 w-auto sm:h-44" />
             <div className="my-6 h-px w-full bg-white/10" />
             <div className="space-y-5">
               {stats.map((s) => (

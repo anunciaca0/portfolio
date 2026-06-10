@@ -103,10 +103,9 @@ export default function Hero() {
         >
           <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-brand-violet/30 to-transparent opacity-40 blur-xl" />
           <div className="relative">
-            <p className="font-display text-sm font-semibold uppercase tracking-widest text-brand-glow/80">
-              Em números
-            </p>
-            <div className="mt-5 space-y-5">
+            <img src="/logo_anunciacao.png" alt="Anunciação" className="mx-auto h-20 w-auto" />
+            <div className="my-6 h-px w-full bg-white/10" />
+            <div className="space-y-5">
               {stats.map((s) => (
                 <div key={s.label} className="flex items-baseline gap-4 border-b border-white/5 pb-4 last:border-0 last:pb-0">
                   <span className="gradient-text font-display text-3xl font-bold sm:text-4xl">{s.value}</span>

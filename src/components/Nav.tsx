@@ -28,8 +28,8 @@ export default function Nav() {
       }`}
     >
       <nav className="section flex h-16 items-center justify-between">
-        <a href="#top" className="font-display text-lg font-bold tracking-tight text-white">
-          R<span className="gradient-text">A</span>
+        <a href="#top" className="flex items-center">
+          <img src="/logo_anunciacao.png" alt="Anunciação" className="h-9 w-auto" />
         </a>
 
         <div className="hidden items-center gap-1 md:flex">

@@ -60,25 +60,10 @@ body {
     url('/noise-mask.png') 256px 50% / 256px 256px;
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
-  animation: dotpulse 5s infinite ease-in-out, flicker 16s infinite linear;
+  animation: flicker 16s infinite linear;
 }
 
-/* alterna forte<->sutil e pontos grandes<->pequenos (opacity garante o movimento) */
-@keyframes dotpulse {
-  0%,
-  100% {
-    opacity: 0.2;
-    -webkit-mask-size: 12px 12px, 256px 256px;
-    mask-size: 12px 12px, 256px 256px;
-  }
-  50% {
-    opacity: 0.68;
-    -webkit-mask-size: 34px 34px, 256px 256px;
-    mask-size: 34px 34px, 256px 256px;
-  }
-}
-
-/* deriva lenta do padrão (twinkle) */
+/* só os brilhos: deriva lenta do ruído faz os pontos cintilarem (tamanho fixo) */
 @keyframes flicker {
   to {
     -webkit-mask-position: 50% 50%, 0 50%;

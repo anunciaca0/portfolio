@@ -38,19 +38,12 @@ body {
 }
 
 /* Fundo animado: campo de pontos (conic-gradient + máscara de ruído) */
-@property --size {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 22px;
-}
-
 .bg-dots {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.45;
-  --size: 22px;
+  opacity: 0.5;
   background: conic-gradient(
     from 180deg at 50% 70%,
     hsla(0, 0%, 98%, 1) 0deg,
@@ -60,14 +53,29 @@ body {
     hsla(0, 0%, 98%, 1) 360deg
   );
   -webkit-mask:
-    radial-gradient(circle at 50% 50%, #fff 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    radial-gradient(circle at 50% 50%, #fff 2px, transparent 2.5px) 50% 50% / 22px 22px,
     url('/noise-mask.png') 256px 50% / 256px 256px;
   mask:
-    radial-gradient(circle at 50% 50%, #fff 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    radial-gradient(circle at 50% 50%, #fff 2px, transparent 2.5px) 50% 50% / 22px 22px,
     url('/noise-mask.png') 256px 50% / 256px 256px;
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
-  animation: flicker 18s infinite linear, dotpulse 7s infinite ease-in-out;
+  animation: dotpulse 5s infinite ease-in-out, flicker 16s infinite linear;
+}
+
+/* alterna forte<->sutil e pontos grandes<->pequenos (opacity garante o movimento) */
+@keyframes dotpulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    -webkit-mask-size: 12px 12px, 256px 256px;
+    mask-size: 12px 12px, 256px 256px;
+  }
+  50% {
+    opacity: 0.68;
+    -webkit-mask-size: 34px 34px, 256px 256px;
+    mask-size: 34px 34px, 256px 256px;
+  }
 }
 
 /* deriva lenta do padrão (twinkle) */
@@ -75,25 +83,6 @@ body {
   to {
     -webkit-mask-position: 50% 50%, 0 50%;
     mask-position: 50% 50%, 0 50%;
-  }
-}
-
-/* alterna forte<->sutil e pontos grandes<->pequenos */
-@keyframes dotpulse {
-  0%,
-  100% {
-    opacity: 0.28;
-    --size: 14px;
-  }
-  50% {
-    opacity: 0.6;
-    --size: 30px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .bg-dots {
-    animation: none;
   }
 }
 

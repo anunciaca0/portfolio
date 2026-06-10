@@ -37,13 +37,19 @@ body {
   background: #3d3d4f;
 }
 
-/* Fundo animado: campo de pontos coloridos (conic-gradient + máscara de ruído) */
+/* Fundo animado: campo de pontos (conic-gradient + máscara de ruído) */
+@property --size {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 22px;
+}
+
 .bg-dots {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.45;
   --size: 22px;
   background: conic-gradient(
     from 180deg at 50% 70%,
@@ -61,13 +67,27 @@ body {
     url('/noise-mask.png') 256px 50% / 256px 256px;
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
-  animation: flicker 20s infinite linear;
+  animation: flicker 18s infinite linear, dotpulse 7s infinite ease-in-out;
 }
 
+/* deriva lenta do padrão (twinkle) */
 @keyframes flicker {
   to {
     -webkit-mask-position: 50% 50%, 0 50%;
     mask-position: 50% 50%, 0 50%;
+  }
+}
+
+/* alterna forte<->sutil e pontos grandes<->pequenos */
+@keyframes dotpulse {
+  0%,
+  100% {
+    opacity: 0.28;
+    --size: 14px;
+  }
+  50% {
+    opacity: 0.6;
+    --size: 30px;
   }
 }
 

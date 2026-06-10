@@ -9,17 +9,17 @@ export default {
       },
       colors: {
         ink: {
-          950: '#070710',
-          900: '#0b0b16',
-          850: '#0f0f1e',
-          800: '#15152a',
-          700: '#1e1e38',
-          600: '#2a2a4a',
+          950: '#0a0a0f',
+          900: '#0d0d14',
+          850: '#13131c',
+          800: '#1a1a24',
+          700: '#24242f',
+          600: '#2f2f3d',
         },
         brand: {
-          violet: '#7c5cff',
-          cyan: '#22d3ee',
-          glow: '#a78bfa',
+          violet: '#e23b54', // crimson (accent primário)
+          cyan: '#4f93e0', // azul aço (accent secundário)
+          glow: '#6ea8e6', // azul aço claro (rótulos/headings)
         },
       },
       keyframes: {

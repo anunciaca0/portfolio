@@ -32,6 +32,8 @@ export const profile = {
   },
   // Currículo em PDF (gerado a partir de cv/curriculo.html)
   cvFile: '/curriculo-rodrigo-anunciacao.pdf',
+  // Foto de perfil (recorte com fundo transparente)
+  photo: '/foto-perfil.png',
 }
 
 export const stats = [

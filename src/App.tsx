@@ -10,8 +10,9 @@ import { profile } from './data/content'
 export default function App() {
   return (
     <>
+      <div className="bg-dots" aria-hidden="true" />
       <Nav />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -19,7 +20,7 @@ export default function App() {
         <Resume />
         <Contact />
       </main>
-      <footer className="border-t border-white/10 py-8">
+      <footer className="relative z-10 border-t border-white/10 py-8">
         <div className="section flex flex-col items-center justify-between gap-3 text-sm text-slate-500 sm:flex-row">
           <p>© {new Date().getFullYear()} {profile.name}. Todos os direitos reservados.</p>
           <p>

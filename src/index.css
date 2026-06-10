@@ -37,6 +37,46 @@ body {
   background: #3d3d4f;
 }
 
+/* Fundo animado: campo de pontos coloridos (conic-gradient + máscara de ruído) */
+.bg-dots {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  --size: 22px;
+  background: conic-gradient(
+    from 180deg at 50% 70%,
+    hsla(0, 0%, 98%, 1) 0deg,
+    #e23b54 90deg,
+    #4f93e0 180deg,
+    #6ea8e6 270deg,
+    hsla(0, 0%, 98%, 1) 360deg
+  );
+  -webkit-mask:
+    radial-gradient(circle at 50% 50%, #fff 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    url('/noise-mask.png') 256px 50% / 256px 256px;
+  mask:
+    radial-gradient(circle at 50% 50%, #fff 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
+    url('/noise-mask.png') 256px 50% / 256px 256px;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+}
+
+@keyframes flicker {
+  to {
+    -webkit-mask-position: 50% 50%, 0 50%;
+    mask-position: 50% 50%, 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-dots {
+    animation: none;
+  }
+}
+
 @layer components {
   .gradient-text {
     @apply bg-clip-text text-transparent;
